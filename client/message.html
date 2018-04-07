@@ -1,0 +1,8 @@
+<template name="message">
+  
+  <div class="message {{#if announcement}}announcement{{/if}}">
+    <div class="name">{{name}} <span class="timestamp">{{timestamp}}</span></div>
+    <div class="message-text">{{message}}{{#if announcement}} <img src="/tada.png" class="emoji" alt="tada">{{/if}}</div>
+  </div>
+  
+</template>

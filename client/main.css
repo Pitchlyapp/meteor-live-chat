@@ -1,0 +1,336 @@
+* {
+	box-sizing: border-box;
+}
+
+html {
+	height: 100%;
+	overflow: hidden;
+}
+
+body {
+	margin: 0px;
+	padding: 0px;
+	height: 100%;
+	font-family: 'Arial', sans-serif;
+	font-size: 14px;
+	color: #444444;
+	text-align: left;
+	line-height: 1.5;
+}
+
+input {
+  display: inline-block;
+  width: 400px;
+	margin: 0px;
+	padding: 10px;
+	background-color: rgba(255, 255, 255, 0.8);
+	border: 1px solid #C2C8D9;
+	color: #444444;
+	border-radius: 3px;
+	font-size: 14px;
+	font-family: 'Arial', sans-serif;
+	outline: none;
+	transition: all 500ms cubic-bezier(0.165, 0.840, 0.440, 1.000); /* easeOutQuart */
+}
+
+input:hover {
+	background-color: white;
+	border-color: #999fb1;
+}
+
+input:focus {
+	background-color: white;
+	border-color: #2a2e3c;
+}
+
+button {
+  display: inline-block;
+	margin: 0px;
+	padding: 10px 20px;
+	background-color: #6D6DD0;
+	border: 1px solid #6D6DD0;
+	color: white;
+	border-radius: 4px;
+	font-size: 12px;
+	font-family: 'Arial', sans-serif;
+	font-weight: bold;
+	outline: none;
+	cursor: pointer;
+	cursor: hand;
+	transition: all 500ms cubic-bezier(0.165, 0.840, 0.440, 1.000); /* easeOutQuart */
+}
+
+button:hover, button:focus {
+	background-color: #5757B2;
+	border-color: #5757B2;
+	color: white;
+	box-shadow: 0px 10px 30px 0px rgba(87, 87, 179, 0.3);
+}
+
+/* selections made by the user dragging along text */
+
+::selection {
+	background: #ffb7b7; /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+	background: #ffb7b7; /* Gecko Browsers */
+}
+
+/* input placeholder color */
+
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+	color:    #999fb1;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+	color:    #999fb1;
+	opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+	color:    #999fb1;
+	opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+	color:    #999fb1;
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+	color:    #999fb1;
+}
+
+/* scrollbar style */
+
+::-webkit-scrollbar {
+	width: 10px; /* for vertical scrollbars */
+	height: 10px; /* for horizontal scrollbars */
+}
+
+::-webkit-scrollbar-track {
+	opacity: 0;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: #5C6274;
+	outline: none;
+}
+
+/* loading spinner animation that can be applied to SVG spinner (uses GPU which makes animation as smooth as possible) */
+
+@-ms-keyframes spin {
+    from { -ms-transform: rotate(0deg); }
+    to { -ms-transform: rotate(360deg); }
+}
+@-moz-keyframes spin {
+    from { -moz-transform: rotate(0deg); }
+    to { -moz-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+    from { -webkit-transform: rotate(0deg); }
+    to { -webkit-transform: rotate(360deg); }
+}
+@keyframes spin {
+    from { transform:rotate(0deg); }
+    to { transform:rotate(360deg); }
+}
+
+.loader {
+	-webkit-animation-name: spin;
+	-webkit-animation-duration: 400ms;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+	-moz-animation-name: spin;
+	-moz-animation-duration: 400ms;
+	-moz-animation-iteration-count: infinite;
+	-moz-animation-timing-function: linear;
+	-ms-animation-name: spin;
+	-ms-animation-duration: 400ms;
+	-ms-animation-iteration-count: infinite;
+	-ms-animation-timing-function: linear;
+	animation-name: spin;
+	animation-duration: 400ms;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+}
+
+.hint-box-container {
+  position: fixed;
+  top: 50px;
+  right: 50px;
+  z-index: 5;
+  opacity: 0.7;
+  transition: all 500ms cubic-bezier(0.165, 0.840, 0.440, 1.000); /* easeOutQuart */
+}
+
+.hint-box-container:hover {
+  opacity: 1;
+}
+
+.hint-box-container .hide-hint-button {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 30px;
+  height: 30px;
+  z-index: 1;
+  background-color: #444444;
+  border-radius: 50%;
+  border: 5px solid white;
+  transition: all 500ms cubic-bezier(0.165, 0.840, 0.440, 1.000); /* easeOutQuart */
+	cursor: pointer;
+	cursor: hand;
+}
+
+.hint-box-container .hide-hint-button:before, .hint-box-container .hide-hint-button:after {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -1px;
+  margin-top: -6px;
+  content: ' ';
+  height: 12px;
+  width: 2px;
+  background-color: white;
+}
+.hint-box-container .hide-hint-button:before {
+  transform: rotate(45deg);
+}
+.hint-box-container .hide-hint-button:after {
+  transform: rotate(-45deg);
+}
+
+.hint-box-container .hint-box {
+  padding: 20px;
+  background-color: white;
+  max-width: 320px;
+  box-shadow: 0px 20px 100px 0px rgba(0,0,0,0.15);
+  transition: all 500ms cubic-bezier(0.165, 0.840, 0.440, 1.000); /* easeOutQuart */
+}
+
+@media (max-width: 420px) {
+  
+  /* in case the hint box gets squeezed out */
+
+	.hint-box-container {
+		left: 50px;
+	}
+
+}
+
+.hint-box-container .hint-box h2 {
+  margin: 0px 0px 5px 0px;
+  padding: 0px;
+  font-size: 21px;
+}
+
+.hint-box-container.hidden .hint-box {
+  display: none;
+}
+
+.hint-box-container.hidden .hide-hint-button {
+  width: 40px;
+  height: 40px;
+  box-shadow: 0px 20px 100px 0px rgba(0,0,0,0.4);
+}
+
+.hint-box-container.hidden .hide-hint-button:after {
+  display: none;
+}
+
+.hint-box-container.hidden .hide-hint-button:before {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  content: '';
+  height: 14px;
+  width: 14px;
+  margin-top: -7px;
+  margin-left: -7px;
+  transform: rotate(0deg);
+  background-color: transparent;
+  background-image: url('/question-white.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.messages-box {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 80px;
+  overflow: none;
+}
+
+.messages-box .messages-scroll {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  overflow: auto;
+  max-height: 100%;
+}
+
+.messages-box .messages-scroll .header {
+  margin: 20px;
+}
+
+.messages-box .messages-scroll .header h1 {
+  font-size: 25px;
+  margin: 0px 0px 10px 0px;
+  padding: 0px;
+}
+
+.messages-box .messages-scroll .messages {
+  padding: 20px;
+}
+
+.messages-box .messages-scroll .messages .message {
+  margin-top: 15px;
+  border-top: 1px solid #EDEEF2;
+  padding-top: 15px;
+}
+
+.messages-box .messages-scroll .messages .message .name {
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+
+.messages-box .messages-scroll .messages .message.announcement .name {
+  color: #ff5722;
+}
+
+.messages-box .messages-scroll .messages .message .timestamp {
+  color: #95979C;
+  font-weight: normal;
+  margin-left: 5px;
+  font-size: 12px;
+}
+
+.messages-box .messages-scroll .messages .message.announcement .emoji {
+  height: 25px;
+  margin-left: 5px;
+  vertical-align: bottom;
+}
+
+.new-message-container {
+  position: fixed;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  height: 80px;
+  border-top: 1px solid #EDEEF2;
+  background-color: #FAFBFF;
+  padding: 20px;
+}
+
+.new-message-container form {
+  display: flex;
+  flex-direction: row;
+}
+
+.new-message-container form input {
+  flex: 1;
+}
+
+.new-message-container form button {
+  margin-left: 10px;
+}

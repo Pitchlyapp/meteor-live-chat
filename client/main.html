@@ -1,0 +1,42 @@
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>Welcome to Live Chat with Meteor!</title>
+</head>
+<body>
+  
+  <div class="hint-box-container {{#if hideHint}}hidden{{/if}}">
+    <div class="hide-hint-button"></div>
+    <div class="hint-box">
+      <h2>Hint</h2>
+      <div>You can send messages anonymously or tell us your name. To set your name, just send a message saying "My name is _____" and we'll introduce you!</div>
+    </div>
+  </div>
+  
+  <div class="messages-box">
+    <div class="messages-scroll">
+      <div class="header">
+        <h1>Welcome to Meteor Live Chat!</h1>
+        <div>See this project on <a href="http://github.com/">GitHub</a></div>
+      </div>
+      <div class="messages">
+        {{#if Template.subscriptionsReady}}
+          {{#each messages}}
+            {{> message}}
+          {{else}}
+            <div>Be the first to write a message!</div>
+          {{/each}}
+        {{else}}
+          {{> loader}}
+        {{/if}}
+      </div>
+    </div>
+  </div>
+  
+  <div class="new-message-container">
+    <form>
+      <input type="text" class="message-input" placeholder="Type your message here..."><button type="submit">Send</button>
+    </form>
+  </div>
+
+</body>
