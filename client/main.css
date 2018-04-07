@@ -96,22 +96,6 @@ button:hover, button:focus {
 	color:    #999fb1;
 }
 
-/* scrollbar style */
-
-::-webkit-scrollbar {
-	width: 10px; /* for vertical scrollbars */
-	height: 10px; /* for horizontal scrollbars */
-}
-
-::-webkit-scrollbar-track {
-	opacity: 0;
-}
-
-::-webkit-scrollbar-thumb {
-	background-color: #5C6274;
-	outline: none;
-}
-
 /* loading spinner animation that can be applied to SVG spinner (uses GPU which makes animation as smooth as possible) */
 
 @-ms-keyframes spin {
