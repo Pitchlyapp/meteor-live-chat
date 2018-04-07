@@ -1,6 +1,8 @@
 # Live Chat with Meteor!
 A simple live chat app written in Meteor
 
+See the [live demo](http://chat.pitchly.net/). Just be nice!
+
 ## How to Run
 Clone this repo. If you don't already have Meteor, see https://www.meteor.com/install or just run:
 
