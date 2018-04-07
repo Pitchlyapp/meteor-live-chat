@@ -1,6 +1,23 @@
 # Live Chat with Meteor!
 A simple live chat app written in Meteor
 
+## How to Run
+Clone this repo. If you don't already have Meteor, see https://www.meteor.com/install or just run:
+
+```
+curl https://install.meteor.com/ | sh
+```
+
+Then in your project directory, run:
+
+```
+meteor
+```
+
+Open up http://localhost:3000/ and see the result. Trying opening in two different windows!
+
+---
+
 This app was largely made in just two hours, styling aside, and shows the power of Meteor and its real-time capabilities. This sample app covers a few key principles:
 
 - How to use Blaze Templates
