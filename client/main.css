@@ -251,6 +251,7 @@ button:hover, button:focus {
   right: 0px;
   overflow: auto;
   max-height: 100%;
+	-webkit-overflow-scrolling: touch; /* enable intertial scroll on mobile devices */
 }
 
 .messages-box .messages-scroll .header {
